@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImpactHub — задачи бизнеса для студентов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>#language-switch{width:auto;margin:0;padding:8px 10px;border-radius:8px;font-weight:800;color:#405147}</style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#"><span class="brand-mark">i</span><span>impact<br>hub</span></a>
+        <nav>
+          <button class="nav-item active" data-view="catalog"><span>▦</span> Каталог задач</button>
+          <button class="nav-item" data-view="create"><span>＋</span> Создать задачу</button>
+          <button class="nav-item" data-view="offers"><span>◈</span> Мои отклики</button>
+        </nav>
+        <div class="sidebar-bottom"><div class="mentor-card"><span class="spark">✦</span><b>AI-помощник</b><p>Поможет сделать задачу понятнее для команд.</p></div><div class="profile"><div class="avatar">A</div><div><b>Алия Т.</b><small>Бизнес-партнёр</small></div><span>⌄</span></div></div>
+      </aside>
+      <main>
+        <header><div class="crumb">Платформа задач <span>/</span> <b id="view-title">Каталог</b></div><div class="header-actions"><select id="language-switch" aria-label="Language"><option value="ru">RU</option><option value="kk">ҚАЗ</option><option value="en">EN</option></select><button class="icon-btn" aria-label="notifications">♢</button><button class="help-btn">?</button></div></header>
+
+        <section id="catalog" class="view active">
+          <div class="hero"><div><p class="eyebrow">СОЗДАЁМ ВМЕСТЕ</p><h1>Задачи, которые<br><em>меняют</em> реальность.</h1><p class="hero-copy">Находите амбициозные задачи от бизнеса и создавайте решения, которыми будут пользоваться.</p><button class="primary" data-go="create">Создать задачу <span>→</span></button></div><div class="hero-orb"><div class="orbit-text">IMPACT • IDEAS • PEOPLE • </div><span>✦</span></div></div>
+          <div class="section-head"><div><h2>Открытые задачи</h2><p>Выберите направление, в котором хотите оставить след.</p></div><span class="count" id="task-count"></span></div>
+          <div class="filters"><div class="filter-group" id="theme-filters"><button class="chip active" data-theme="all">Все темы</button><button class="chip" data-theme="EdTech">EdTech</button><button class="chip" data-theme="FinTech">FinTech</button><button class="chip" data-theme="EcoTech">EcoTech</button><button class="chip" data-theme="HealthTech">HealthTech</button></div><select id="readiness-filter"><option value="all">Любая готовность</option><option value="priority">Приоритетные</option><option value="ready">Готовые</option><option value="working">Рабочие</option><option value="draft">Черновики</option></select></div>
+          <div id="task-grid" class="task-grid"></div>
+        </section>
+
+        <section id="create" class="view">
+          <div class="create-layout"><div class="form-pane"><p class="eyebrow">НОВАЯ ЗАДАЧА</p><h1>Расскажите, что<br>хотите <em>изменить.</em></h1><p class="intro">Опишите задачу своими словами. AI поможет превратить её в понятный бриф для студенческих команд.</p>
+            <div class="stepper"><span class="step active">1 <i>Описание</i></span><span class="step-line"></span><span class="step">2 <i>Уточнение</i></span><span class="step-line"></span><span class="step">3 <i>Карточка</i></span></div>
+            <form id="task-form"><label>Коротко о задаче <textarea id="raw-description" required placeholder="Например: Мы хотим сделать процесс записи к врачу понятнее и удобнее для пациентов..." rows="5"></textarea></label><div class="two-col"><label>Тема<select id="task-theme"><option>HealthTech</option><option>EdTech</option><option>FinTech</option><option>EcoTech</option><option>Smart City</option></select></label><label>Название организации<input id="company" placeholder="Например, MedCare" /></label></div><button class="primary wide" type="submit">AI-анализ задачи <span>→</span></button></form></div>
+            <aside class="create-tip"><span>✦</span><h3>Как это работает?</h3><p>Мы не придумаем факты за вас. AI только подскажет, какой информации не хватает, чтобы команда могла начать работу.</p><ul><li>3 умных уточнения</li><li>Прозрачный рейтинг</li><li>Вы подтверждаете всё сами</li></ul></aside></div>
+        </section>
+
+        <section id="questions" class="view narrow"><p class="eyebrow">AI-УТОЧНЕНИЕ</p><h1>Сделаем задачу<br><em>понятнее.</em></h1><p class="intro">AI проанализировал описание. Ответьте на вопросы — это повысит готовность задачи.</p><div class="ai-note"><span>✦</span><div><b>AI ничего не добавляет сам</b><p>Ответы будут использованы только для формирования вашей карточки.</p></div></div><form id="questions-form" class="question-list"></form><button class="primary" id="build-card">Сформировать карточку <span>→</span></button></section>
+
+        <section id="card" class="view"><div class="card-top"><div><p class="eyebrow">ПРОВЕРЬТЕ КАРТОЧКУ</p><h1>Ваша задача почти<br><em>готова.</em></h1><p class="intro">Отредактируйте поля при необходимости. Публикация — только после вашего подтверждения.</p></div><div id="score-panel" class="score-panel"></div></div><div class="editor-layout"><form id="card-form" class="card-editor"></form><aside class="score-explain"><h3>Что влияет на рейтинг?</h3><div id="score-details"></div><p class="soft">Совет: заполните все поля — задача станет приоритетной в каталоге.</p></aside></div><button id="publish-task" class="primary publish">Подтвердить и опубликовать <span>→</span></button></section>
+
+        <section id="detail" class="view"><button class="back" data-go="catalog">← Назад к каталогу</button><div id="detail-content"></div></section>
+        <section id="offers" class="view"><p class="eyebrow">КАБИНЕТ БИЗНЕСА</p><h1>Предложения<br><em>команд.</em></h1><p class="intro">Сравните идеи и выберите одну, несколько или ни одной команды. Решение всегда за вами.</p><div id="offers-content"></div></section>
+      </main>
+    </div>
+    <div id="modal" class="modal hidden"><div class="modal-box"><button class="modal-close">×</button><div id="modal-content"></div></div></div>
+    <div id="toast"></div><script src="app.js"></script><script src="i18n.js"></script>
+  </body>
+</html>
