@@ -67,6 +67,8 @@
       <button class="nav-item" data-view="match"><span>✦</span><small>Match</small></button>
     </nav>
     <div id="modal" class="modal hidden"><div class="modal-box"><button class="modal-close">×</button><div id="modal-content"></div></div></div>
+    <button id="assistant-toggle" class="assistant-toggle" aria-expanded="false" aria-controls="assistant-panel">✦ <span>AI-көмекші</span></button>
+    <section id="assistant-panel" class="assistant-panel hidden" aria-label="ImpactHub AI көмекшісі"><div class="assistant-head"><div><b>ImpactHub AI-көмекші</b><small>Тапсырма немесе өтінім туралы сұраңыз</small></div><button id="assistant-close" aria-label="Жабу">×</button></div><div id="assistant-messages" class="assistant-messages"><div class="assistant-message bot">Сәлем! Мен тапсырманы нақтылауға, командаға лайық жобаны табуға және өтінімді жақсартуға көмектесемін.</div></div><form id="assistant-form" class="assistant-form"><input id="assistant-input" required placeholder="Мысалы: тапсырманы қалай нақты жазамын?" /><button class="primary" aria-label="Жіберу">→</button></form></section>
     <div id="toast"></div><script src="ai-service.js"></script><script src="app.js"></script><script src="i18n.js"></script><script src="auth.js"></script>
   </body>
 </html>
